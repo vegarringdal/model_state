@@ -1,0 +1,24 @@
+[package]
+name = "model_state"
+version = "0.1.0"
+edition = "2021"
+description= "Model State Machine"
+repository="private for now"
+license="Vegar Ringdal"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wasm-bindgen = "0.2.91"
+serde = { version = "1.0.196", features = ["derive"] }
+serde-wasm-bindgen = "0.6.3"
+console_error_panic_hook="0.1.7"
+serde_json = "1.0.113"
+
+[profile.release]
+opt-level = 3
+lto = true
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = ["-O4"]
